@@ -1,13 +1,15 @@
 import React from 'react';
 import {MealType} from "../../types";
 import {Link} from "react-router-dom";
+import BtnSpinner from "../Spinners/BtnSpinner";
 
 interface Props {
   meal: MealType;
   onDelete: React.MouseEventHandler;
+  isLoading: boolean
 }
 
-const Meal: React.FC<Props> = ({meal, onDelete}) => {
+const Meal: React.FC<Props> = ({meal, onDelete, isLoading}) => {
   return (
     <div className="card p-2 m-4 d-flex flex-row align-items-center">
       <div className="col-10">
@@ -27,6 +29,7 @@ const Meal: React.FC<Props> = ({meal, onDelete}) => {
           </svg>
         </Link>
         <button className="ms-2 btn btn-danger" onClick={onDelete}>
+          {isLoading && <BtnSpinner/>}
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x"
                viewBox="0 0 16 16">
             <path

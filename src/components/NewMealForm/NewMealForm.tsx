@@ -80,9 +80,9 @@ const NewMealForm: React.FC<Props> = ({onSubmit,
           onChange={onFieldChange}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary" disabled={isLoading}>
         {isLoading && <ButtonSpinner/>}
-        {isEdit ? 'Update' : 'Add'}
+        {isEdit ? 'Update' : 'Save'}
       </button>
     </form>
   );
